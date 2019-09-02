@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>Countries sample</title>
+    <script type="text/javascript">
+		function populateCountry(s1,s2){
+			var s1 = document.getElementById(s1);
+			var s2 = document.getElementById(s2);
+			s2.innerHTML = "";
+
+				if(s1.value == "ng"){
+					var optionArray = ["|", "la|Lagos State", "ab|Abuja", "kn|kanu State", "oy|Oyo State", "an|Anambra State", "bu|Benue State"];
+				}else if(s1.value == "ca"){
+					var optionArray = ["|", "Aghem|Aghem State", "Bamenda|Bamenda-Nkwe State", "Lewoh|Lewoh State", "Njirong|Njirong State", "Bamougoum|Bamougoum State", "Oku|Oku State"];
+				}else if(s1.value == "ga"){
+					var optionArray = ["|", "greatacra|Greater Accra", "brong|Brong-Ahafo", "upper|Upper West", "east|Eastern", "volt|Volta", "asha|Ashanti"];
+				}
+			for(var option in optionArray){
+				var pair = optionArray[option].split("|");
+				var newOption = document.createElement("option");
+				newOption.value = pair[0];
+				newOption.innerHTML = pair[1];
+				s2.options.add(newOption);
+			}
+		}
+	</script> 
+    
+</head>
+<body>
+		<h1>COUNTRIES AND STATES </h1>
+	
+		<p><h2 class="white">Please choose your country and state</h2></p>
+		<p>
+			<h2>Country: </h2> 
+				<select id="classGroup" onchange="populateCountry(this.id, 'select_subjectGroup')" >
+					<option value=""></option>
+					<option value="ng">Nigeria</option>
+					<option value="ca">Cameroun</option>
+					<option value="ga">Ghana</option>
+				</select>	
+		</p>
+		<p>
+				<h2 class="white">State: </h2> 
+				<select id="select_subjectGroup"></select>
+		</p>
+			
+</body>
+</html>
